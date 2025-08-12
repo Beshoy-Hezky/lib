@@ -17,3 +17,4 @@ This is a simple E-Library web application demonstrating a basic MVC structure u
 - Admin dashboard with CRUD operations for books
 - Book listing with search and ordering
 - Simple styling with CSS
+- Borrowing system with user returns and admin records

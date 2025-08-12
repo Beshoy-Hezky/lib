@@ -13,7 +13,13 @@
     <tr><th>Title</th><th>Author</th><th>Category</th></tr>
     <?php foreach ($books as $b): ?>
     <tr>
-        <td><a href="index.php?page=book&id=<?php echo $b['id']; ?>"><?php echo htmlspecialchars($b['title']); ?></a></td>
+        <td>
+            <form method="get" action="index.php" style="display:inline">
+                <input type="hidden" name="page" value="book">
+                <input type="hidden" name="id" value="<?php echo $b['id']; ?>">
+                <button type="submit"><?php echo htmlspecialchars($b['title']); ?></button>
+            </form>
+        </td>
         <td><?php echo htmlspecialchars($b['author']); ?></td>
         <td><?php echo htmlspecialchars($b['category']); ?></td>
     </tr>
