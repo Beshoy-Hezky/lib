@@ -1,20 +1,30 @@
 <?php
 require_once __DIR__ . '/db.php';
 
-function get_books($search = '', $order = 'title') {
+function get_books($search = '', $order = 'title', $available_only = false) {
     $db = get_db();
-    $sql = 'SELECT * FROM books';
+    $sql = 'SELECT b.* FROM books b';
     $params = [];
+    if ($available_only) {
+        $sql .= ' LEFT JOIN borrowings br ON b.id = br.book_id AND br.return_date IS NULL';
+    }
+    $conditions = [];
+    if ($available_only) {
+        $conditions[] = 'br.id IS NULL';
+    }
     if ($search !== '') {
-        $sql .= ' WHERE title LIKE ? OR author LIKE ? OR category LIKE ?';
+        $conditions[] = '(b.title LIKE ? OR b.author LIKE ? OR b.category LIKE ?)';
         $wild = '%' . $search . '%';
-        $params = [$wild, $wild, $wild];
+        $params = array_merge($params, [$wild, $wild, $wild]);
+    }
+    if ($conditions) {
+        $sql .= ' WHERE ' . implode(' AND ', $conditions);
     }
     $allowed = ['title', 'author', 'category'];
     if (!in_array($order, $allowed)) {
         $order = 'title';
     }
-    $sql .= " ORDER BY $order";
+    $sql .= " ORDER BY b.$order";
     $stmt = $db->prepare($sql);
     $stmt->execute($params);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

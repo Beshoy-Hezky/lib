@@ -14,6 +14,16 @@ CREATE TABLE books (
     isbn VARCHAR(20)
 );
 
+CREATE TABLE borrowings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    book_id INT NOT NULL,
+    borrow_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    return_date DATETIME DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);
+
 -- Sample data
 INSERT INTO users (email, password, role) VALUES
 ('admin@example.com', '$2y$12$LByreBIhsQcIYUEn45jq.u7yY8k646wOQ7BqFuXq/C2tmXtp1beqC', 'admin'),
@@ -23,3 +33,5 @@ INSERT INTO books (title, author, category, isbn) VALUES
 ('The Great Gatsby','F. Scott Fitzgerald','Fiction','9780743273565'),
 ('1984','George Orwell','Dystopian','9780451524935'),
 ('To Kill a Mockingbird','Harper Lee','Fiction','9780061120084');
+
+-- No initial borrowings

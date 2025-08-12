@@ -26,6 +26,15 @@ switch ($page) {
     case 'delete_book':
         require __DIR__ . '/controllers/delete_book.php';
         break;
+    case 'borrow_book':
+        require __DIR__ . '/controllers/borrow_book.php';
+        break;
+    case 'return_book':
+        require __DIR__ . '/controllers/return_book.php';
+        break;
+    case 'borrowings':
+        require __DIR__ . '/controllers/borrowings.php';
+        break;
     case 'logout':
         require __DIR__ . '/controllers/logout.php';
         break;

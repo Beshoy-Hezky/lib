@@ -11,6 +11,9 @@
     <a href="index.php?page=books">Books</a>
     <?php if (isset($_SESSION['user_id'])): ?>
         <a href="index.php?page=dashboard">Dashboard</a>
+        <?php if ($_SESSION['role'] === 'admin'): ?>
+            <a href="index.php?page=borrowings">Borrowings</a>
+        <?php endif; ?>
         <a href="index.php?page=logout">Logout</a>
     <?php else: ?>
         <a href="index.php?page=login">Login</a>
