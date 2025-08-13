@@ -6,8 +6,8 @@ function get_db() {
     if ($db === null) {
         $host = 'localhost';
         $dbname = 'elibrary';
-        $user = 'root';
-        $pass = '';
+        $user = 'ts_user';
+        $pass = 'pa55word';
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
         try {
             $db = new PDO($dsn, $user, $pass);

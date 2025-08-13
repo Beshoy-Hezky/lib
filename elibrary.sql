@@ -1,4 +1,8 @@
--- Database schema for E-Library
+DROP DATABASE IF EXISTS electronic_library;
+CREATE DATABASE electronic_library;
+USE electronic_library;
+
+-- Database schema 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -34,4 +38,12 @@ INSERT INTO books (title, author, category, isbn) VALUES
 ('1984','George Orwell','Dystopian','9780451524935'),
 ('To Kill a Mockingbird','Harper Lee','Fiction','9780061120084');
 
--- No initial borrowings
+INSERT INTO borrowings (user_id, book_id, borrow_date) VALUES
+(1, 1, '2025-08-01 10:00:00'),
+(2, 3, '2025-08-05 14:30:00');
+
+-- Create a user named ts_user
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON *
+TO ts_user@localhost
+IDENTIFIED BY 'pa55word';
