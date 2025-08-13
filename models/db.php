@@ -5,7 +5,7 @@ function get_db() {
     static $db = null;
     if ($db === null) {
         $host = 'localhost';
-        $dbname = 'elibrary';
+        $dbname = 'electronic_library';
         $user = 'ts_user';
         $pass = 'pa55word';
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
