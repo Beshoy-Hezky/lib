@@ -1,4 +1,4 @@
-<h1>Book List</h1>
+<h1>Available Books List</h1>
 <form method="get" action="index.php">
     <input type="hidden" name="page" value="books">
     <input type="text" name="search" placeholder="Search" value="<?php echo htmlspecialchars($search); ?>">

@@ -8,9 +8,13 @@
 <body>
 <nav>
     <a href="index.php">Home</a>
-    <a href="index.php?page=books">Books</a>
+    <a href="index.php?page=books">Available Books</a>
     <?php if (isset($_SESSION['user_id'])): ?>
-        <a href="index.php?page=dashboard">Dashboard</a>
+        <?php if ($_SESSION['role'] === 'admin'): ?>
+        <a href="index.php?page=dashboard">All Books</a>
+        <?php else: ?>
+        <a href="index.php?page=dashboard">Borrowed Books</a>
+        <?php endif; ?>
         <?php if ($_SESSION['role'] === 'admin'): ?>
             <a href="index.php?page=borrowings">Borrowings</a>
         <?php endif; ?>

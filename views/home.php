@@ -1,5 +1,5 @@
 <h1>Welcome to the E-Library</h1>
-<p>Browse our collection of books.</p>
+<p>Browse our collection of available books.</p>
 <ul>
 <?php foreach ($books as $b): ?>
     <li>

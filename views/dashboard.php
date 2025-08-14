@@ -1,5 +1,10 @@
-<h1>Dashboard</h1>
-<p>Welcome, <?php echo htmlspecialchars($_SESSION['role']); ?> user.</p>
+<?php if ($_SESSION['role'] === 'admin'): ?>
+<h1>All Books</h1>
+<?php else: ?>
+<h1>Borrowed Books</h1>
+<?php endif; ?>
+
+<p>Welcome, <?php echo htmlspecialchars($_SESSION['role']); ?>.</p>
 
 <?php if ($_SESSION['role'] === 'admin'): ?>
     <form method="get" action="index.php">
