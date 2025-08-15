@@ -1,5 +1,5 @@
 <?php
-include 'models/db.php';
+require_once __DIR__ . '/db.php';
 
 function get_books($search = '', $order = 'title', $available_only = false) {
     $db = get_db();
