@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../models/book_model.php';
-require_once __DIR__ . '/../models/borrow_model.php';
-$id = $_GET['id'] ?? 0;
+include 'models/book_model.php';
+include 'models/borrow_model.php';
+$id = isset($_GET['id']) ? $_GET['id'] : 0;
 $book = get_book($id);
 $is_borrowed = false;
 $user_borrow_id = null;
@@ -14,6 +14,6 @@ if ($book) {
         }
     }
 }
-include __DIR__ . '/../views/header.php';
-include __DIR__ . '/../views/book.php';
-include __DIR__ . '/../views/footer.php';
+include 'views/header.php';
+include 'views/book.php';
+include 'views/footer.php';
