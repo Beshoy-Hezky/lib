@@ -1,5 +1,5 @@
 <?php
-include 'models/db.php';
+require_once __DIR__ . '/db.php';
 
 function is_book_borrowed($book_id) {
     $db = get_db();

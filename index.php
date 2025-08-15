@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'models/db.php';
+require_once 'models/db.php';
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
