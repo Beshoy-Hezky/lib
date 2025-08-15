@@ -11,7 +11,7 @@
 </form>
 <table>
     <tr><th>Title</th><th>Author</th><th>Category</th></tr>
-    <?php foreach ($books as $b): ?>
+    <?php foreach ($books as $b) { ?>
     <tr>
         <td>
             <form method="get" action="index.php" style="display:inline">
@@ -23,5 +23,5 @@
         <td><?php echo htmlspecialchars($b['author']); ?></td>
         <td><?php echo htmlspecialchars($b['category']); ?></td>
     </tr>
-    <?php endforeach; ?>
+    <?php } ?>
 </table>

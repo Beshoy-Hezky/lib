@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../models/book_model.php';
-$search = $_GET['search'] ?? '';
-$order = $_GET['order'] ?? 'title';
+include 'models/book_model.php';
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$order = isset($_GET['order']) ? $_GET['order'] : 'title';
 $books = get_books($search, $order, true);
-include __DIR__ . '/../views/header.php';
-include __DIR__ . '/../views/books.php';
-include __DIR__ . '/../views/footer.php';
+include 'views/header.php';
+include 'views/books.php';
+include 'views/footer.php';

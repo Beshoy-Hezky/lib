@@ -1,46 +1,46 @@
 <?php
 session_start();
-require_once __DIR__ . '/models/db.php';
+require 'models/db.php';
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 switch ($page) {
     case 'login':
-        require __DIR__ . '/controllers/login.php';
+        require 'controllers/login.php';
         break;
     case 'register':
-        require __DIR__ . '/controllers/register.php';
+        require 'controllers/register.php';
         break;
     case 'books':
-        require __DIR__ . '/controllers/books.php';
+        require 'controllers/books.php';
         break;
     case 'book':
-        require __DIR__ . '/controllers/book.php';
+        require 'controllers/book.php';
         break;
     case 'add_book':
-        require __DIR__ . '/controllers/add_book.php';
+        require 'controllers/add_book.php';
         break;
     case 'edit_book':
-        require __DIR__ . '/controllers/edit_book.php';
+        require 'controllers/edit_book.php';
         break;
     case 'delete_book':
-        require __DIR__ . '/controllers/delete_book.php';
+        require 'controllers/delete_book.php';
         break;
     case 'borrow_book':
-        require __DIR__ . '/controllers/borrow_book.php';
+        require 'controllers/borrow_book.php';
         break;
     case 'return_book':
-        require __DIR__ . '/controllers/return_book.php';
+        require 'controllers/return_book.php';
         break;
     case 'borrowings':
-        require __DIR__ . '/controllers/borrowings.php';
+        require 'controllers/borrowings.php';
         break;
     case 'logout':
-        require __DIR__ . '/controllers/logout.php';
+        require 'controllers/logout.php';
         break;
     case 'dashboard':
-        require __DIR__ . '/controllers/dashboard.php';
+        require 'controllers/dashboard.php';
         break;
     default:
-        require __DIR__ . '/controllers/home.php';
+        require 'controllers/home.php';
 }

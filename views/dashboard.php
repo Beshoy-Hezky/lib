@@ -1,19 +1,19 @@
-<?php if ($_SESSION['role'] === 'admin'): ?>
+<?php if ($_SESSION['role'] == 'admin') { ?>
 <h1>All Books</h1>
-<?php else: ?>
+<?php } else { ?>
 <h1>Borrowed Books</h1>
-<?php endif; ?>
+<?php } ?>
 
 <p>Welcome, <?php echo htmlspecialchars($_SESSION['role']); ?>.</p>
 
-<?php if ($_SESSION['role'] === 'admin'): ?>
+<?php if ($_SESSION['role'] == 'admin') { ?>
     <form method="get" action="index.php">
         <input type="hidden" name="page" value="add_book">
         <button type="submit">Add Book</button>
     </form>
     <table>
         <tr><th>Title</th><th>Actions</th></tr>
-        <?php foreach ($books as $b): ?>
+        <?php foreach ($books as $b) { ?>
         <tr>
             <td><?php echo htmlspecialchars($b['title']); ?></td>
             <td>
@@ -29,13 +29,13 @@
                 </form>
             </td>
         </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </table>
-<?php else: ?>
+<?php } else { ?>
     <h2>Your Borrowed Books</h2>
     <table>
         <tr><th>Title</th><th>Author</th><th>Return</th></tr>
-        <?php foreach ($borrowings as $b): ?>
+        <?php foreach ($borrowings as $b) { ?>
         <tr>
             <td><?php echo htmlspecialchars($b['title']); ?></td>
             <td><?php echo htmlspecialchars($b['author']); ?></td>
@@ -47,6 +47,6 @@
                 </form>
             </td>
         </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </table>
-<?php endif; ?>
+<?php } ?>
